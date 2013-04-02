@@ -20,6 +20,10 @@ helpers do
     sprintf('<td><a href="/contacts/%d">%d</a></td>', id, id)
   end
 
+  def get_time
+    Time.now.year.to_s + '/' + Time.now.month.to_s + '/' + Time.now.day.to_s
+  end
+
   def save_csv(contacts)
     CSV.open(settings.csvfile ,'wb') do |csv|
       csv << contacts.first.keys
