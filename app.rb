@@ -85,6 +85,8 @@ get '/contacts/:id' do
 end
 
 get '/contacts/:id/destroy' do
+  @action = "/contacts/#{@contact['id']}"
+  @method = :delete
   @contacts.delete_if{ |contact| contact["id"] == params[:id] }
   save_csv(@contacts)
   redirect '/contacts'

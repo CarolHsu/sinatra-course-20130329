@@ -1,3 +1,7 @@
+<form action="<%=@action%>" method="post">
+          <%if @method%>
+            <input type="hidden" name="_method" value="<%=@method%>"/>
+          <%end%>
 <a href="/contacts/new">new!</a>
 
 <table>
@@ -15,8 +19,11 @@
         <td><%=contact[key]%></td>
       <%end%>
       <td><a href="/contacts/<%=contact['id']%>/edit">edit</a></td>
-      <td><a href="/contacts/<%=contact['id']%>/destroy">delete</a></td>
+      <td>
+        <a href="/contacts/<%=contact['id']%>/destroy" >delete</a>
+      </td>
     </tr>
   <%end%>
 
 </table>
+</form>
