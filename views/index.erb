@@ -6,6 +6,7 @@
       <th><%=title%></th>
     <%end%>
     <th></th>
+    <th></th>
   </tr>
   <%@contacts.each do |contact|%>
     <tr>
@@ -14,6 +15,7 @@
         <td><%=contact[key]%></td>
       <%end%>
       <td><a href="/contacts/<%=contact['id']%>/edit">edit</a></td>
+      <td><a href="/contacts/<%=contact['id']%>/destroy">delete</a></td>
     </tr>
   <%end%>
 

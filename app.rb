@@ -83,3 +83,9 @@ end
 get '/contacts/:id' do
   erb :show
 end
+
+get '/contacts/:id/destroy' do
+  @contacts.delete_if{ |contact| contact["id"] == params[:id] }
+  save_csv(@contacts)
+  redirect '/contacts'
+end
