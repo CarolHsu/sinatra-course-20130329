@@ -3,6 +3,24 @@
     <input type="hidden" name="_method" value="<%=@method%>"/>
   <%end%>
   <ul>
+  <% if @action == '/contacts' %>
+    <li>
+      <label>Name</label>
+      <input size="30" name="contact[name]" type="text"/>
+    </li>
+    <li>
+      <label>Phone</label>
+      <input type="text" name="contact[phone]"  />
+    </li>
+    <li>
+      <label>Address</label>
+      <input size="60" type="text" name="contact[address]" />
+    </li>
+    <li>
+      <label>Note</label>
+      <textarea cols="40" rows="10" name="contact[note]"></textarea>
+    </li>
+  <% else %>
     <li>
       <label>Name</label>
       <input size="30" name="contact[name]" type="text" value="<%=@contact["name"]%>"/>
@@ -19,6 +37,7 @@
       <label>Note</label>
       <textarea cols="40" rows="10" name="contact[note]"><%=@contact["note"]%></textarea>
     </li>
+  <% end %>
   </ul>
   <input type="submit" value="Submit"/>
 </form>

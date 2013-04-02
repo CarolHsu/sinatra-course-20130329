@@ -44,7 +44,8 @@ get '/contacts' do
 end
 
 post '/contacts' do
-  @contacts.push(params[:contact])
+  contact = {"id" => (@contacts.size + 1)}
+  @contacts.push(contact.merge!(params[:contact]))
   save_csv(@contacts)
   redirect '/contacts'
 end
@@ -52,7 +53,7 @@ end
 get '/contacts/new' do
   @action = "/contacts"
   @method = :post
-  erb :new_form
+  erb :form
 end
 
 
