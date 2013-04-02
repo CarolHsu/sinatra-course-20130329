@@ -3,6 +3,7 @@
 require 'sinatra'
 require 'csv'
 
+# set :public_folder, File.dirname(__FILE__) + '/static'
 set :csvfile, 'fakedata.csv'
 
 before do
