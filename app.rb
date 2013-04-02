@@ -43,14 +43,18 @@ get '/contacts' do
   erb :index
 end
 
-#post '/contacts' do
-#
-#end
-#
-#get '/contacts/new' do
-#  erb :form
-#end
-#
+post '/contacts' do
+  @contacts.push(params[:contact])
+  save_csv(@contacts)
+  redirect '/contacts'
+end
+
+get '/contacts/new' do
+  @action = "/contacts"
+  @method = :post
+  erb :new_form
+end
+
 
 before %r{\/contacts\/(\d+).*} do
   @contact = @contacts.select{|contact| contact["id"] == params[:captures].first}
@@ -73,5 +77,3 @@ end
 get '/contacts/:id' do
   erb :show
 end
-
-
